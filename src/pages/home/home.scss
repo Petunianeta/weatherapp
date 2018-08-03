@@ -1,3 +1,69 @@
 page-home {
-
-}
+    ion-content{
+        background-image: url(../../assets/imgs/background.png) !important;
+    }
+    ion-select, ion-option, ion-item{
+        background-color: rgba(0,0,0,0) !important;
+        color: white;
+    }
+    ion-label{
+        color: black !important;
+    }
+    div{
+        color: white !important;
+        // background-color: rgba(0,0,0,0) !important;
+    }
+    .scroll-content {
+        background-color:#536DFE;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      button {
+        flex: 1;
+        width: 50%;
+      }
+      .cities{
+          width: 100%;
+          height: 300px;
+          margin-top: 30%;
+          background-color: rgba(0,0,0,0.2) !important;
+          border-radius: 8px;
+      }
+      h1, h2, h3{
+          text-align: center;
+          table-layout: auto;
+          width: 100%;
+      
+      }
+      .result h1,.result h2,.result h3{
+          width: 100%;
+          background-color: #f55848 !important;
+      }
+      .temp{
+          font-size: 2em;
+      }
+      .image-container{
+          width: 60%;
+          height: 200px;
+          float: left;
+      }
+      .image-container img{
+          width: 100%;
+          height: 100%;
+      }
+      .info{
+          width: 30%;
+          float: left;
+          margin-top: 13%;
+      }
+      .info h1{
+          font-size: 3em;
+          margin-left: -20%;
+      }
+      .down{
+          width: 100%;
+          float: left;
+      }
+ }

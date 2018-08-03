@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Weather App</ion-title>
+    <ion-searchbar type="text" [(ngModel)]="cityname"></ion-searchbar>
+
+  </ion-navbar>
+  <ion-item>
+      <ion-label>convertion</ion-label>
+    <ion-select id="select" [(ngModel)]="conversionUnit">
+        <ion-option value="Kelvins">Kelvin</ion-option>
+        <ion-option value="Celsius">Celsius</ion-option>
+        <ion-option value="Fahrenheit">Fahrenheit</ion-option>   
+    </ion-select>
+    </ion-item>
+
+ </ion-header>
+ <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+  
+  <div class="cities" [@flyInOut]="flyInOutState">
+    <h1>{{infoList?.main.name}} </h1>
+    <div class="image-container">
+      <img src={{conditionCode}}>
+ 
+    </div>
+    
+    <div class="info">
+        <h3>Today</h3>
+      <h1>{{temparature}}&#8451;</h1>
+    </div>
+    
+    <div class="down">
+      <!-- <h2>{{infoList?.coord.lat}}</h2>
+      <h3>{{infoList?.weather[0].description}}Sunny</h3> -->
+    </div>
+    
+  </div>
+  <div class="temp">
+      <ion-grid>
+        <ion-row class="row">
+          <ion-col>
+    
+          <h5>Low Temp</h5>
+          <h5>{{maintemp}}&#8451;</h5>
+        </ion-col>
+    <ion-col></ion-col>
+    <ion-col>
+    <h5>High Temp</h5>
+    <h5>{{hightemp}}&#8451;</h5>
+    </ion-col>
+        </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+    
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        </div>
+  <div class="ion">
+  <button  ion-button block (click)="select()">submit</button> 
+</div>
+<ion-grid class="back">
+    
+    <ion-row >
+        <ion-col class="h" >
+        humidity
+        </ion-col>
+        <ion-col class="in">
+          {{infoList?.main.humidity}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col>
+              Pressure
+          </ion-col>
+          <ion-col>
+              {{infoList?.main.pressure}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Description 
+          </ion-col>
+          <ion-col>
+              {{infoList?.weather[0].description}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Latitute
+          </ion-col>
+          <ion-col>
+              {{infoList?.coord.lat}}
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            Longitute
+          </ion-col>
+          <ion-col>
+              {{infoList?.coord.lon}}
+          </ion-col>
+        </ion-row>
+
+        </ion-grid>
+
+
+
+
+
+   
+  <!-- <div class="cities" [@flyInOut]="flyInOutState" *ngIf="counter == 2">
+    <h1>{{infoList?.main.name}}</h1>
+    <div class="image-container">
+      <img src="{{conditionCode}}">
+    </div>
+    <div class="info">
+      <h1>{{infoList?.main.temp}}</h1>
+    </div>
+    <div class="down">
+      <h2>{{infoList?.coord.lat}}</h2>
+      <h3>{{infoList?.weather[0].description}}</h3>
+    </div>
+  </div>
+  <div class="cities" [@flyInOut]="flyInOutState" *ngIf="counter == 3">
+    <h1>{{infoList?.main.name}}</h1>
+    <div class="image-container">
+      <img src="{{conditionCode}}">
+    </div>
+    <div class="info">
+      <h1>{{infoList?.main.temp}}</h1>
+    </div>
+    <div class="down">
+      <h2>{{infoList?.coord.lat}}</h2>
+      <h3>{{infoList?.weather[0].description}}Sunny</h3>
+    </div>
+  </div>
+ </ion-content> -->

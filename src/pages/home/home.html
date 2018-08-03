@@ -1,14 +1,55 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="p">
+    <ion-title>Sink</ion-title>
   </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+ </ion-header>
+ <ion-content padding>
+  <ion-item>
+    <ion-label>Select City</ion-label>
+    <ion-select [(ngModel)]="city" (ionChange)="onSelectChange()">
+      <ion-option value="Pretoria">Pretoria</ion-option>
+      <ion-option value="Johannesburg">Johannesburg</ion-option>
+      <ion-option value="Durban">Durban</ion-option>
+      <ion-option value="Cape town">Cape Town</ion-option>
+    </ion-select>
+  </ion-item>
+  <div class="cities" [@flyInOut]="flyInOutState" *ngIf="counter == 1">
+    <h1>{{infoList?.main.name}}</h1>
+    <div class="image-container">
+      <img src={{conditionCode}}>
+    </div>
+    <div class="info">
+      <h1>{{infoList?.main.temp}}</h1>
+    </div>
+    <div class="down">
+      <h2>{{infoList?.coord.lat}}</h2>
+      <h3>{{infoList?.weather[0].description}}Sunny</h3>
+    </div>
+  </div>
+  <div class="cities" [@flyInOut]="flyInOutState" *ngIf="counter == 2">
+    <h1>{{infoList?.main.name}}</h1>
+    <div class="image-container">
+      <img src="{{conditionCode}}">
+    </div>
+    <div class="info">
+      <h1>{{infoList?.main.temp}}</h1>
+    </div>
+    <div class="down">
+      <h2>{{infoList?.coord.lat}}</h2>
+      <h3>{{infoList?.weather[0].description}}</h3>
+    </div>
+  </div>
+  <div class="cities" [@flyInOut]="flyInOutState" *ngIf="counter == 3">
+    <h1>{{infoList?.main.name}}</h1>
+    <div class="image-container">
+      <img src="{{conditionCode}}">
+    </div>
+    <div class="info">
+      <h1>{{infoList?.main.temp}}</h1>
+    </div>
+    <div class="down">
+      <h2>{{infoList?.coord.lat}}</h2>
+      <h3>{{infoList?.weather[0].description}}Sunny</h3>
+    </div>
+  </div>
+ </ion-content>
